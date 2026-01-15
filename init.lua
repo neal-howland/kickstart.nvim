@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -114,9 +114,9 @@ vim.o.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--  vim.o.clipboard = 'unnamedplus'
+--end)
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -248,6 +248,8 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+
+  'ThePrimeagen/vim-be-good', -- neal-howland 2026-01-12: Added VimBeGood game plugin
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -942,7 +944,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     branch = 'master',
     build = ':TSUpdate',
---  main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    --  main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     main = 'nvim-treesitter', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
