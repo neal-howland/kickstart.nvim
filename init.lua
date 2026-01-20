@@ -205,6 +205,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- Adding my own keymaps to keep cursor centered during search and page up/down
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Page down and center cursor' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Page up and center cursor' })
+vim.keymap.set('n', 'n', 'nzz', { desc = 'Search next and center cursor' })
+vim.keymap.set('n', 'N', 'Nzz', { desc = 'Search previous and center cursor' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -696,14 +702,14 @@ require('lazy').setup({
           -- capabilities = {},
           settings = {
             Lua = {
-              diagnostics = {
-                globals = { 'vim' },
-              },
               completion = {
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = {
+                disable = { 'missing-fields' },
+                globals = { 'vim' },
+              },
             },
           },
         },
